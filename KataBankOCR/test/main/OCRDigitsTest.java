@@ -8,6 +8,20 @@ public class OCRDigitsTest {
 
 	@Test
 	public void testDigitConverter_Zero() throws Exception {
-		assertEquals(0, new OCRDigits().convert("temp"));
+		String digit = " _ " +
+					   "| |" +
+					   "|_|" +
+					   "   ";
+		
+		assertEquals(0, new OCRDigits().convert(digit));
+	}
+	
+	@Test
+	public void testDigitConverter_One() throws Exception {
+		String digit = "   " +
+					   "  |" +
+					   "  |" +
+					   "   ";
+		assertEquals(1, new OCRDigits().convert(digit));
 	}
 }
