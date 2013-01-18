@@ -24,4 +24,13 @@ public class OCRDigitsTest {
 					   "   ";
 		assertEquals(1, new OCRDigits().convert(digit));
 	}
+	
+	@Test
+	public void testDigitConverter_Nine() throws Exception {
+		String digit = " _ " +
+					   "|_|" +
+					   "  |" +
+					   "   ";
+		assertEquals(9, new OCRDigits().convert(digit));
+	}
 }
