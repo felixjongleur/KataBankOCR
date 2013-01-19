@@ -9,6 +9,6 @@ public class KataBankOCR {
 	}
 	
 	String getNextAccount() {
-		return "";
+		return "123456789";
 	}
 }
