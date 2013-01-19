@@ -1,30 +1,34 @@
 package main;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class OCRDigits {
 	
-	private final Map<String, Integer> ocrToDigits;
-	
-	public OCRDigits() {
-		ocrToDigits = new HashMap<String, Integer>();
-		ocrToDigits.put(ZERO , 0);
-		ocrToDigits.put(ONE  , 1);
-		ocrToDigits.put(TWO  , 2);
-		ocrToDigits.put(THREE, 3);
-		ocrToDigits.put(FOUR , 4);
-		ocrToDigits.put(FIVE , 5);
-		ocrToDigits.put(SIX  , 6);
-		ocrToDigits.put(SEVEN, 7);
-		ocrToDigits.put(EIGHT, 8);
-		ocrToDigits.put(NINE , 9);
-	}
-	
-	public int convert(String digit) {
+	static Map<String, String> ocrToDigits;
+		
+	static String convert(String digit) {
+		if(ocrToDigits == null) {
+			populateOCRToDigits();
+		}
 		return ocrToDigits.get(digit);
 	}
-
+	
+	private static void populateOCRToDigits() {
+		Map<String, String> temp = new HashMap<String, String>();
+		temp.put(ZERO , "0");
+		temp.put(ONE  , "1");
+		temp.put(TWO  , "2");
+		temp.put(THREE, "3");
+		temp.put(FOUR , "4");
+		temp.put(FIVE , "5");
+		temp.put(SIX  , "6");
+		temp.put(SEVEN, "7");
+		temp.put(EIGHT, "8");
+		temp.put(NINE , "9");
+		ocrToDigits = Collections.unmodifiableMap(temp);
+	}
 
 	static final String ZERO  = " _ " +
 							    "| |" +
