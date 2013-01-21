@@ -12,7 +12,10 @@ public class OCRDigits {
 		if(ocrToDigits == null) {
 			populateOCRToDigits();
 		}
-		return ocrToDigits.get(digit);
+		if(ocrToDigits.containsKey(digit))
+			return ocrToDigits.get(digit);
+		
+		return "?";
 	}
 	
 	private static void populateOCRToDigits() {

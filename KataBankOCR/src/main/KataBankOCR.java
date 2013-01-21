@@ -18,7 +18,7 @@ public class KataBankOCR {
 		String line1 = ocrReader.readLine();
 		String line2 = ocrReader.readLine();
 		String line3 = ocrReader.readLine();
-		String line4 = ocrReader.readLine();		
+		ocrReader.readLine();
 		return new AccountNumberParser().convertAccountNumber(line1 + line2 + line3);
 	}
 }

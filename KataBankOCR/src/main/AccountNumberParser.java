@@ -10,11 +10,19 @@ public class AccountNumberParser {
 		String digits = "";
 		for(int index = 0; index < DIGITS; index++) {
 			digits += convertDigitAtIndex(index, accountNumber);
-		}		
-		if(!hasValidCheckSum(digits)) {
+		}
+		if(!hasAllDigits(digits)) {
+			return digits + " ILL";
+		} else if(!hasValidCheckSum(digits)) {
 			return digits + " ERR";
 		}
 		return digits;
+	}
+
+	boolean hasAllDigits(String digits) {
+		if(digits.indexOf('?') != -1)
+			return false;
+		return true;
 	}
 
 	String convertDigitAtIndex(int index, String accountNumber) {
@@ -30,10 +38,6 @@ public class AccountNumberParser {
 		for(int pos = 1; pos <= DIGITS; pos++) {
 			checkSum += Character.digit(characters[DIGITS - pos], 10) * pos;			
 		}
-		checkSum %= 11;
-		if(checkSum == 0) {
-			return true;
-		}
-		return false;
+		return (checkSum % 11 == 0);
 	}
 }
