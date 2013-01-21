@@ -22,6 +22,15 @@ public class AccountNumberParser {
 	}
 	
 	Boolean hasValidCheckSum(String accountNumber) {		
-		return true;
+		char[] characters = accountNumber.toCharArray();
+		int checkSum = 0;
+		for(int pos = 1; pos <= DIGITS; pos++) {
+			checkSum += Character.digit(characters[DIGITS - pos], 10) * pos;			
+		}
+		checkSum %= 11;
+		if(checkSum == 0) {
+			return true;
+		}
+		return false;
 	}
 }
