@@ -11,6 +11,9 @@ public class AccountNumberParser {
 		for(int index = 0; index < DIGITS; index++) {
 			digits += convertDigitAtIndex(index, accountNumber);
 		}		
+		if(!hasValidCheckSum(digits)) {
+			return digits + " ERR";
+		}
 		return digits;
 	}
 

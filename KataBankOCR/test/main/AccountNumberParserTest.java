@@ -16,15 +16,6 @@ public class AccountNumberParserTest {
 	}
 
 	@Test
-	public void testAccountNumberParser_Ones() throws Exception {
-		
-		String accountNumber = "                           " +
-							   "  |  |  |  |  |  |  |  |  |" +
-							   "  |  |  |  |  |  |  |  |  |";
-		assertEquals("111111111", new AccountNumberParser().convertAccountNumber(accountNumber));
-	}
-
-	@Test
 	public void testAccountNumberParser_Random() throws Exception {
 		
 		String accountNumber = "    _  _     _  _  _  _  _ " +
