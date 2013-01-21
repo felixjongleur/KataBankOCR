@@ -20,4 +20,8 @@ public class AccountNumberParser {
 		String bottom = accountNumber.substring(index * WIDTH + 2 * TOTALWIDTH, index * WIDTH + 2 * TOTALWIDTH + WIDTH);
 		return OCRDigits.convert(top + middle + bottom);
 	}
+	
+	Boolean hasValidCheckSum(String accountNumber) {		
+		return true;
+	}
 }

@@ -33,5 +33,17 @@ public class AccountNumberParserTest {
 		assertEquals("123456789", new AccountNumberParser().convertAccountNumber(accountNumber));
 	}
 	
+	@Test
+	public void testAccountNumberParser_CheckSumValid() throws Exception {
+
+		String accountNumber = "123456789";		
+		assertEquals(true, new AccountNumberParser().hasValidCheckSum(accountNumber));
+	}
 	
+	@Test
+	public void testAccountNumberParser_CheckSumInValid() throws Exception {
+		
+		String accountNumber = "664371495";
+		assertEquals(false, new AccountNumberParser().hasValidCheckSum(accountNumber));
+	}
 }
