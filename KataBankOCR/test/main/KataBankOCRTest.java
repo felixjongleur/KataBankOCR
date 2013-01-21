@@ -22,5 +22,7 @@ public class KataBankOCRTest {
 		assertEquals("111111111 ERR", ocr.getNextAccount());
 		assertEquals("222222222 ERR", ocr.getNextAccount());
 		assertEquals("000000051", ocr.getNextAccount());
+		assertEquals("49006771? ILL", ocr.getNextAccount());
+		assertEquals("1234?678? ILL", ocr.getNextAccount());
 	}
 }
